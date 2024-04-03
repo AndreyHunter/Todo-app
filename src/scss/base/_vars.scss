@@ -2,19 +2,34 @@
 	--container-width: 1170px;
 	--container-padding: 15px;
 
-	--font-main: sans-serif;
+	--font-main: 'Kanit', sans-serif;
 	--font-accent: 'Manrope', sans-serif;
 	--font-titles: var(--font-accent);
 
-	--page-bg: linear-gradient(to right, #243b55, #141e30), #141e30;
+	--page-bg: #f7f7f7;
 
-	--text-color: #ffffffc2;
-	--accent: #ac182c;
+	--text-color: #252525;
 	--link-color: #2578c8;
+	--accent: #6c63ff;
 
 	--laptop-size: 1199px;
 	--tablet-size: 959px;
 	--mobile-size: 599px;
+
+    --black: #252525;
+	--white: #f7f7f7;
+	--purple: #6c63ff;
+
+    --title-color: #252525;
+    --title-weight: 500;
+    --title-size: 3rem;
+
+    // Search 
+    --search-icon-height: 1.3rem;
+    --search-icon-width: 1.3rem;
+
+    // Theme Btn 
+    --theme-icon-color: white;
 }
 
 .dark {

@@ -32,3 +32,9 @@ pre.code {
 	padding: 1rem;
 	border-radius: 4px;
 }
+
+.title {
+    color: var(--title-color);
+    font-weight: var(--title-weight);
+    font-size: var(--title-size);
+}

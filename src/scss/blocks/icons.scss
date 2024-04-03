@@ -1,0 +1,18 @@
+.icon {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.search-icon {
+    width: var(--search-icon-width);;
+    height: var(--search-icon-height);
+    fill: var(--purple);
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+.moon-icon {
+    fill: var(--theme-icon-color);
+}

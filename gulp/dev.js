@@ -13,6 +13,10 @@ const changed = require('gulp-changed');
 const imagemin = require('gulp-imagemin');
 const svgSprite = require('gulp-svg-sprite');
 
+// Fonts
+const ttf2woff = require('gulp-ttf2woff');
+const ttf2woff2 = require('gulp-ttf2woff2');
+
 // CSS
 const sass = require('gulp-sass')(require('sass'));
 const sassGlob = require('gulp-sass-glob');
@@ -159,7 +163,12 @@ gulp.task('fonts:dev', function () {
 	return gulp
 		.src('./src/fonts/**/*')
 		.pipe(changed('./build/fonts/'))
-		.pipe(gulp.dest('./build/fonts/'));
+        .pipe(ttf2woff())
+		.pipe(gulp.dest('./build/fonts/'))
+
+        .pipe(gulp.src('./src/fonts/**/*'))
+        .pipe(ttf2woff2())
+        .pipe(gulp.dest('./build/fonts/'));
 });
 
 gulp.task('server:dev', function () {

@@ -1,0 +1,43 @@
+.todo {
+    padding: 80px 0;
+
+    &__title {
+        margin-bottom: 20px;
+    }
+    &__actions {
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+    }
+    &__input-wrapper {
+        width: 800px;
+        position: relative;
+    }
+    &__input {
+        width: 100%;
+        padding: 8px 16px;
+        min-height: 38px;
+        border: 1px solid var(--purple);
+        border-radius: 5px;
+    }
+    &__options {
+        width: 150px;
+        min-height: 38px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: var(--purple);
+        color: white;
+        cursor: pointer;
+    }
+    &__themeBtn {
+        width: 48px;
+        min-height: 38px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--purple);
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+}

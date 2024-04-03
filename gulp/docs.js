@@ -30,12 +30,12 @@ const changed = require('gulp-changed');
 
 const fileIncludeNotify = {
 	prefix: '@@',
-	basepath: '@file',
+	basepath: '@file'
 };
 
 const serverNotify = {
 	livereload: true,
-	open: true,
+	open: true
 };
 
 // const svgStack = {
@@ -58,8 +58,8 @@ const serverNotify = {
 const svgSymbol = {
 	mode: {
 		symbol: {
-			sprite: '../sprite.symbol.svg',
-		},
+			sprite: '../sprite.symbol.svg'
+		}
 	},
 	shape: {
 		transform: [
@@ -70,14 +70,14 @@ const svgSymbol = {
 						{
 							name: 'removeAttrs',
 							params: {
-								attrs: '(fill|stroke)',
-							},
-						},
-					],
-				},
-			},
-		],
-	},
+								attrs: '(fill|stroke)'
+							}
+						}
+					]
+				}
+			}
+		]
+	}
 };
 
 function plumberNotify(title) {
@@ -85,8 +85,8 @@ function plumberNotify(title) {
 		errorHandler: notify.onError({
 			title: title,
 			message: 'Error <%= error.message %>',
-			sound: false,
-		}),
+			sound: false
+		})
 	};
 }
 

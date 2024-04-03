@@ -21,7 +21,7 @@ const groupMedia = require('gulp-group-css-media-queries');
 
 const fileIncludeNotify = {
 	prefix: '@@',
-	basepath: '@file',
+	basepath: '@file'
 };
 
 // const svgStack = {
@@ -44,8 +44,8 @@ const fileIncludeNotify = {
 const svgSymbol = {
 	mode: {
 		symbol: {
-			sprite: '../sprite.symbol.svg',
-		},
+			sprite: '../sprite.symbol.svg'
+		}
 	},
 	shape: {
 		transform: [
@@ -56,19 +56,19 @@ const svgSymbol = {
 						{
 							name: 'removeAttrs',
 							params: {
-								attrs: '(fill|stroke)',
-							},
-						},
-					],
-				},
-			},
-		],
-	},
+								attrs: '(fill|stroke)'
+							}
+						}
+					]
+				}
+			}
+		]
+	}
 };
 
 const serverNotify = {
 	livereload: true,
-	open: true,
+	open: true
 };
 
 function plumberNotify(title) {
@@ -76,8 +76,8 @@ function plumberNotify(title) {
 		errorHandler: notify.onError({
 			title: title,
 			message: 'Error <%= error.message %>',
-			sound: false,
-		}),
+			sound: false
+		})
 	};
 }
 

@@ -38,9 +38,7 @@
 }
 
 .container-right {
-	padding-left: calc(
-		(100% - var(--container-width)) / 2 + var(--container-padding)
-	);
+	padding-left: calc((100% - var(--container-width)) / 2 + var(--container-padding));
 
 	@include tablet {
 		padding-left: var(--container-padding);
@@ -48,9 +46,7 @@
 }
 
 .container-left {
-	padding-right: calc(
-		(100% - var(--container-width)) / 2 + var(--container-padding)
-	);
+	padding-right: calc((100% - var(--container-width)) / 2 + var(--container-padding));
 
 	@include tablet {
 		padding-right: var(--container-padding);
@@ -61,9 +57,7 @@
 	padding-right: calc(
 		(100% - var(--container-width)) / 2 + (var(--container-width) / 2)
 	);
-	padding-left: calc(
-		(100% - var(--container-width)) / 2 + var(--container-padding)
-	);
+	padding-left: calc((100% - var(--container-width)) / 2 + var(--container-padding));
 
 	@include tablet {
 		padding-left: var(--container-padding);
@@ -78,9 +72,7 @@
 	padding-left: calc(
 		(100% - var(--container-width)) / 2 + (var(--container-width) / 2)
 	);
-	padding-right: calc(
-		(100% - var(--container-width)) / 2 + var(--container-padding)
-	);
+	padding-right: calc((100% - var(--container-width)) / 2 + var(--container-padding));
 
 	@include tablet {
 		padding-right: var(--container-padding);

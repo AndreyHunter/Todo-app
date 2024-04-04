@@ -3,6 +3,7 @@
 	--container-padding: 15px;
 
 	--font-main: 'Kanit', sans-serif;
+    --second-font: sans-serif;
 	--font-accent: 'Manrope', sans-serif;
 	--font-titles: var(--font-accent);
 
@@ -11,6 +12,8 @@
 	--text-color: #252525;
 	--link-color: #2578c8;
 	--accent: #6c63ff;
+    --red-color: red;
+    --placeholder-color: #c3c1e5;
 
 	--laptop-size: 1199px;
 	--tablet-size: 959px;
@@ -20,16 +23,46 @@
 	--white: #f7f7f7;
 	--purple: #6c63ff;
 
+    --hover-bg-color: #5850dd;
+
+    --main-transition: .1s ease-in-out;
+
     --title-color: #252525;
     --title-weight: 500;
     --title-size: 3rem;
+    --item-size: 1.25rem;
 
     // Search 
-    --search-icon-height: 1.3rem;
     --search-icon-width: 1.3rem;
+    --search-icon-height: 1.3rem;
 
     // Theme Btn 
     --theme-icon-color: white;
+
+    // Plus icon
+    --plus-icon: white;
+    --plus-bg-box-shadow: 0 0 4px 0 var(--purple);
+    --plus-icon-bg-hover: #534cc2;
+    --plus-icon-bg-border: 2px solid var(--purple);
+    
+    // Change icon
+    --change-icon-width: 1.4rem;
+    --change-icon-height: 1.4rem;
+    --change-icon-fill: transparent;
+    --change-icon-stroke: #cdcdcd;
+
+    // Trash icon
+    --trash-icon-width: 1.4rem;
+    --trash-icon-height: 1.4rem;
+    --trash-icon-fill: transparent;
+    --trash-icon-stroke: #cdcdcd;
+
+    // TODO MODAL
+    --modal-width: 500px;
+    --modal-height: 289px;
+    --modal-bg: white;
+    --modal-padding: 20px;
+    --modal-border-radius: 16px;
 }
 
 .dark {

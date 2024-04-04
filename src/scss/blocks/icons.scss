@@ -16,3 +16,34 @@
 .moon-icon {
     fill: var(--theme-icon-color);
 }
+
+.todo-check {
+    width: var(--todo-check-icon-width);
+    width: var(--todo-check-icon-height);
+}
+
+.plus-icon {
+    fill: var(--plus-icon);
+}
+
+.change-icon {
+    width: var(--change-icon-width);
+    height: var(--change-icon-height);
+    fill: var(--change-icon-fill);
+    stroke: var(--change-icon-stroke);
+
+    &:hover {
+        stroke: var(--purple);
+    }
+}
+
+.trash-icon {
+    width: var(--trash-icon-width);
+    height: var(--trash-icon-height);
+    fill: var(--trash-icon-fill);
+    stroke: var(--trash-icon-stroke);
+
+    &:hover {
+        stroke: var(--red-color);
+    }
+}

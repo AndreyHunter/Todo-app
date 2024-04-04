@@ -38,3 +38,38 @@ pre.code {
     font-weight: var(--title-weight);
     font-size: var(--title-size);
 }
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 38px;
+    border-radius: 5px;
+    font-size: 1.125rem;
+    transition: var(--main-transition);
+    
+    &:active {
+        transform: translateY(.8px);
+    }
+}
+
+.btn-transparent {
+    width: 110px;
+    border: 1px solid var(--purple);
+    background-color: transparent;
+    color: var(--purple);
+
+    &:hover {
+        box-shadow: 0 0 0 0.5px var(--purple);
+    }
+}
+
+.btn-apply {
+    width: 97px;
+    background-color: var(--purple);
+    color: white;
+
+    &:hover {
+        background-color: var(--hover-bg-color);
+    }
+}

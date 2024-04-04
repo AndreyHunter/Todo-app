@@ -37,6 +37,78 @@
                 </svg>
             </button>
         </div>
+
+
+        <ul class="todo__list">
+            <li class="todo__item">
+                <div class="todo__item-check-wrapper">
+                    <div class="todo__item-check"></div>
+                </div>
+                Note #1
+
+              <div class="action-icons">
+                    <svg class="icon change-icon">
+                        <use href="./images/svgsprite/sprite.symbol.svg#change"></use>
+                    </svg>
+    
+                    <svg class="icon trash-icon">
+                        <use href="./images/svgsprite/sprite.symbol.svg#trash"></use>
+                    </svg>
+              </div>
+            </li>
+            <li class="todo__item">
+                <div class="todo__item-check-wrapper">
+                    <div class="todo__item-check"></div>
+                </div>
+                Note #2
+                <div class="action-icons">
+                    <svg class="icon change-icon">
+                        <use href="./images/svgsprite/sprite.symbol.svg#change"></use>
+                    </svg>
+    
+                    <svg class="icon trash-icon">
+                        <use href="./images/svgsprite/sprite.symbol.svg#trash"></use>
+                    </svg>
+              </div>
+            </li>
+            <li class="todo__item">
+                <div class="todo__item-check-wrapper">
+                    <div class="todo__item-check"></div>
+                </div>
+                Note #3
+                <div class="action-icons">
+                    <svg class="icon change-icon">
+                        <use href="./images/svgsprite/sprite.symbol.svg#change"></use>
+                    </svg>
+    
+                    <svg class="icon trash-icon">
+                        <use href="./images/svgsprite/sprite.symbol.svg#trash"></use>
+                    </svg>
+              </div>
+            </li>
+        </ul>
+
+        <button class="todo__add-taskBtn">
+            <svg class="icon plus-icon">
+                <use href="./images/svgsprite/sprite.symbol.svg#plus-icon"></use>
+            </svg>
+        </button>
+    </div>
+</section>
+        <section class="todo-modal">
+    <div class="todo-modal__content">
+        <h2 class="todo-modal__title text-center">NEW NOTE</h2>
+    
+        <form class="todo-modal__form">
+            <div class="todo-modal__input-wrapper">
+                <input type="text" class="todo-modal__input" placeholder="Wtire your note...">
+            </div>
+        </form>
+
+        <div class="todo-modal__actions">
+            <button data-modal-btn="chancel" class="btn todo-modal__btn  btn-transparent">CHANCEL</button>
+            <button data-modal-btn="apply" class="btn todo-modal__btn btn-apply">APPLY</button>
+        </div>
     </div>
 </section>
 

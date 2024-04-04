@@ -1,0 +1,51 @@
+.todo-modal {
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+
+
+    &__content {
+        width: var(--modal-width);
+        height: var(--modal-height);
+        background-color: var(--modal-bg);
+        padding: var(--modal-padding);
+        border-radius: var(--modal-border-radius);
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__title {
+        font-size: 2rem;
+        color: var(--text-color);
+        margin-bottom: 15px;
+    }
+
+    &__input-wrapper {
+        width: 100%;
+        min-height: 38px;
+        border: 1px solid var(--purple);
+        border-radius: 5px;
+        padding: 8px 16px;
+        position: relative;
+    }
+
+    &__input {
+        width: 100%;
+
+        &::placeholder {
+            font-family: var(--second-font);
+            color: var(--placeholder-color);
+        }
+    }
+
+
+    &__actions {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+}

@@ -31,9 +31,9 @@
 		"style-loader": "^3.3.4",
 		"webpack-stream": "^7.0.0"
 	},
-    "scripts": {
-        "format": "prettier --write \"src/**/*.js\""
-      },
+	"scripts": {
+		"format": "prettier --write \"src/**/*.js\""
+	},
 	"browserslist": [
 		"last 5 versions"
 	],
@@ -41,5 +41,9 @@
 		"presets": [
 			"@babel/preset-env"
 		]
+	},
+	"dependencies": {
+		"resize-observer-polyfill": "^1.5.1",
+		"simplebar": "^6.2.5"
 	}
 }

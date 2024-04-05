@@ -7,23 +7,27 @@
     &__actions {
         display: flex;
         justify-content: space-between;
-        gap: 5px;
+        gap: 20px;
+        padding-bottom: 80px;
     }
+
+    &__form {
+        width: 80%;
+    }
+
     &__input-wrapper {
-        width: 800px;
+        width: 100%;
         position: relative;
     }
     &__input {
         width: 100%;
         padding: 8px 16px;
-        min-height: 38px;
         border: 1px solid var(--purple);
         border-radius: 5px;
     }
     &__options {
         width: 150px;
-        min-height: 38px;
-        padding: 10px;
+        padding: 0 10px;
         border-radius: 5px;
         border: none;
         border: 2px solid transparent;
@@ -45,8 +49,7 @@
         }
     }
     &__themeBtn {
-        width: 48px;
-        min-height: 38px;
+        width: 78px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -61,4 +64,18 @@
             background: var(--hover-bg-color);
         }
     }
+}
+
+.empty {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.empty img {
+    width: 400px;
 }

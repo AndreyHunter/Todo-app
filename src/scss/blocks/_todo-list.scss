@@ -1,13 +1,13 @@
 .todo {
     &__list {
-        padding-top: 70px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+        max-height: 400px; 
+        overflow-y: auto;
+        padding-right: 20px;
     }
 
     &__item-task {
         display: flex;
+        align-items: center;
         gap: 20px;
         user-select: none;
     }
@@ -19,7 +19,6 @@
         gap: 25px;
         font-weight: 500;
         font-size: var(--item-size);
-        text-transform: uppercase;
         color: var(--black);
         cursor: pointer;
 
@@ -79,4 +78,18 @@
 .action-icons {
     display: flex;
     gap: 15px;
+}
+
+.simplebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.simplebar-vertical .simplebar-scrollbar:before {
+    background-color: var(--purple);
+}
+
+.simplebar-vertical .simplebar-scrollbar.simplebar-visible::before {
+    opacity: .8;
 }

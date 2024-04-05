@@ -1,5 +1,6 @@
 function renderTask(selector, data) {
     const element = document.querySelector(selector);
+    
     element.innerHTML = '';
 
     for (let key of data) {
@@ -30,4 +31,16 @@ function renderTask(selector, data) {
     }
 }
 
-export { renderTask };
+function todoEmpty(element) {
+    const el = document.querySelector(element);
+    const div = document.createElement('div');
+    div.classList.add('empty');
+    div.textContent = 'Empty';
+    const image = document.createElement('img');
+    image.classList.add('empty__image');
+    image.src = './images/Detective-check-footprint.png';
+    div.append(image);
+    el.append(div);
+}
+
+export { renderTask, todoEmpty };

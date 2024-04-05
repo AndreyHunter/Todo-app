@@ -1,11 +1,16 @@
 import { Modal } from './modules/modal';
-import { renderTask } from './modules/render';
+import { renderTask, todoEmpty } from './modules/render';
 import { getItem, setItem } from './modules/local-storage';
+
+// import 'simplebar';
+// import 'simplebar/dist/simplebar.css';
 
 // Отображения тасков при старте страници
 
 let tasksArray = getItem('task') || [];
 renderTask('.todo__list', tasksArray);
+
+checkTodoListLength('.todo__list');
 
 // Модальное окно 
 const modal = new Modal(
@@ -50,6 +55,7 @@ function addTask(e) {
     setItem('task', tasksArray);
     renderTask('.todo__list', tasksArray);
     todoForm.reset();
+    checkTodoListLength('.todo__list');
 }
 
 // Отметка завершённой задачи
@@ -78,7 +84,21 @@ function handleTaskAction(e) {
     if (target.dataset.action === 'remove') {
         tasksArray.splice(taskIndex, 1);
         taskItem.remove();
+        checkTodoListLength('.todo__list');
     }
 
     setItem('task', tasksArray);
+}
+
+// Проверка на пустой список 
+
+function checkTodoListLength(arr) {
+    const el = document.querySelector(arr);
+
+    if (el.children.length === 0 && tasksArray.length === 0) {
+        todoEmpty('.container');
+    } else {
+        const emptyMessage = document.querySelector('.empty');
+        if (emptyMessage) emptyMessage.remove();
+    }
 }

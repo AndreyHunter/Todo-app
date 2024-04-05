@@ -46,4 +46,8 @@
     &:hover {
         stroke: var(--red-color);
     }
+
+    use {
+        pointer-events: none;
+    }
 }

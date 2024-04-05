@@ -1,26 +1,44 @@
 .todo-modal {
+    visibility: hidden;
     width: 100%;
     min-height: 100%;
     position: fixed;
     inset: 0;
     display: grid;
     place-items: center;
+    transition: var(--main-transition); 
+
+    &.active {
+        visibility: visible;
+        background-color: rgba(37, 37, 37, 0.7);
+    }
 
 
     &__content {
+        transform: scale(0);
+        transition: .2s ease-in-out;
         width: var(--modal-width);
         height: var(--modal-height);
         background-color: var(--modal-bg);
         padding: var(--modal-padding);
         border-radius: var(--modal-border-radius);
-        display: flex;
-        flex-direction: column;
+
+        &.active {
+            transform: scale(1);
+        }
     }
     
     &__title {
         font-size: 2rem;
         color: var(--text-color);
         margin-bottom: 15px;
+    }
+
+    &__form {
+        height: 190px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     &__input-wrapper {
@@ -43,7 +61,6 @@
 
 
     &__actions {
-        margin-top: auto;
         display: flex;
         justify-content: space-between;
         gap: 20px;

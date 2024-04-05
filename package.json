@@ -31,6 +31,9 @@
 		"style-loader": "^3.3.4",
 		"webpack-stream": "^7.0.0"
 	},
+    "scripts": {
+        "format": "prettier --write \"src/**/*.js\""
+      },
 	"browserslist": [
 		"last 5 versions"
 	],

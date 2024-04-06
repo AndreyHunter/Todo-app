@@ -21,3 +21,4 @@ class Modal {
 }
 
 export { Modal };
+

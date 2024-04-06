@@ -1,9 +1,9 @@
-function getItem(item) {
-    return JSON.parse(localStorage.getItem(item));
+function getItem(key) {
+	return JSON.parse(localStorage.getItem(key));
 }
 
-function setItem(item, array) {
-    localStorage.setItem(item, JSON.stringify(array));
+function setItem(key, elements) {
+	localStorage.setItem(key, JSON.stringify(elements));
 }
 
-export {getItem, setItem};
+export { getItem, setItem };

@@ -2,8 +2,8 @@ import { Modal } from './modules/modal';
 import { renderTask, todoEmpty } from './modules/render';
 import { getItem, setItem } from './modules/local-storage';
 
-// import 'simplebar';
-// import 'simplebar/dist/simplebar.css';
+import 'simplebar';
+import 'simplebar/dist/simplebar.css';
 
 // Отображения тасков при старте страници
 
@@ -12,7 +12,7 @@ renderTask('.todo__list', tasksArray);
 
 checkTodoListLength('.todo__list');
 
-// Модальное окно 
+// Модальное окно
 const modal = new Modal(
 	'.todo__add-taskBtn',
 	'.todo-modal',
@@ -21,41 +21,43 @@ const modal = new Modal(
 	'active'
 );
 
-window.addEventListener('click', (e) => {
-	const target = e.target;
-	const overlay = document.querySelector('.todo-modal');
-	if (!overlay.classList.contains('active')) return;
-
-	if (target.classList.contains('todo-modal')) modal.closeModal();
-	if (target.getAttribute('data-modal-btn') === 'chancel') modal.closeModal();
+const modalOverlay = document.querySelector('.todo-modal');
+modalOverlay.addEventListener('click', (e) => {
+    const target = e.target;
+    if (!target.classList.contains(modalOverlay) && !modalOverlay.classList.contains('active')) return;
+    if (target === modalOverlay) modal.closeModal();
+    if (target.getAttribute('data-modal-btn') === 'chancel') modal.closeModal();
 });
 
-document.addEventListener('keydown', e => e.code === 'Escape' ? modal.closeModal() : null);
+document.addEventListener('keydown', (e) =>
+	e.code === 'Escape' ? modal.closeModal() : null
+);
 
-// Добавления задач 
+// Добавления задач
 
 const todoForm = document.querySelector('.todo-modal__form');
 todoForm.addEventListener('submit', addTask);
 
 function addTask(e) {
-    e.preventDefault();
+	e.preventDefault();
 
-    const todoInput = document.querySelector('.todo-modal__input');
-    const todoInputValue = todoInput.value.trim();
+	const todoInput = document.querySelector('.todo-modal__input');
+	const todoInputValue = todoInput.value.trim();
 
-    if (!todoInputValue) return;
+	if (!todoInputValue) return;
 
-    const taskInfo = {
-        id: Date.now(),
-        taskText: todoInputValue,
-        status: false
-    };
+	const taskInfo = {
+		id: Date.now(),
+		taskText: todoInputValue,
+		status: false
+	};
 
-    tasksArray.push(taskInfo);
-    setItem('task', tasksArray);
-    renderTask('.todo__list', tasksArray);
-    todoForm.reset();
-    checkTodoListLength('.todo__list');
+	tasksArray.push(taskInfo);
+	setItem('task', tasksArray);
+	renderTask('.simplebar-content', tasksArray);
+	todoForm.reset();
+	modal.closeModal();
+	checkTodoListLength('.simplebar-content');
 }
 
 // Отметка завершённой задачи
@@ -64,41 +66,53 @@ const todoList = document.querySelector('.todo__list');
 todoList.addEventListener('click', handleTaskAction);
 
 function handleTaskAction(e) {
-    const target = e.target;
+	const target = e.target;
 
-    const done = target.closest('.todo__item-check-wrapper');
-    const taskText = target.closest('.todo__item-task');
+	const taskText = target.closest('.todo__item-task');
+	const done = target.closest('.todo__item-check-wrapper');
 
-    const taskItem = target.closest('.todo__item');
-    if (!taskItem) return;
-    const id = +taskItem.id;
+	const taskItem = target.closest('.todo__item');
+	if (!taskItem) return;
+	const id = +taskItem.id;
 
-    const taskIndex = tasksArray.findIndex(task => task.id === id);
+	const taskIndex = tasksArray.findIndex((task) => task.id === id);
 
-    if (target === taskText || target === done) {
-        tasksArray[taskIndex].status = !tasksArray[taskIndex].status;
-        taskText.closest('.todo__item').classList.toggle('active');
-        taskText.querySelector('.todo__item-check').classList.toggle('active');
+    // Смена статуса таска
+
+	if (target === taskText || target === done) {
+		tasksArray[taskIndex].status = !tasksArray[taskIndex].status;
+		taskText.closest('.todo__item').classList.toggle('active');
+		taskText.querySelector('.todo__item-check').classList.toggle('active');
+	}
+
+    // Удаление таска
+
+	if (target.dataset.action === 'remove') {
+		tasksArray.splice(taskIndex, 1);
+		taskItem.remove();
+		checkTodoListLength('.simplebar-content');
+	}
+
+    // Изменение таска
+
+    if (target.dataset.action === 'change') {
+        const newTaskText = prompt('Change Task', '');
+        tasksArray[taskIndex].taskText = newTaskText;
+        renderTask('.simplebar-content', tasksArray);
     }
 
-    if (target.dataset.action === 'remove') {
-        tasksArray.splice(taskIndex, 1);
-        taskItem.remove();
-        checkTodoListLength('.todo__list');
-    }
-
-    setItem('task', tasksArray);
+	setItem('task', tasksArray);
 }
 
-// Проверка на пустой список 
+// Проверка на пустой список
 
-function checkTodoListLength(arr) {
-    const el = document.querySelector(arr);
+function checkTodoListLength(list) {
+	const el = document.querySelector(list);
 
-    if (el.children.length === 0 && tasksArray.length === 0) {
-        todoEmpty('.container');
-    } else {
-        const emptyMessage = document.querySelector('.empty');
-        if (emptyMessage) emptyMessage.remove();
-    }
+	if (el.children.length === 0 && tasksArray.length === 0) {
+		todoEmpty('.container');
+	} else {
+		const emptyMessage = document.querySelector('.empty');
+		if (emptyMessage) emptyMessage.remove();
+	}
 }

@@ -2,6 +2,7 @@
     visibility: hidden;
     width: 100%;
     min-height: 100%;
+    padding: 0 15px;
     position: fixed;
     inset: 0;
     display: grid;
@@ -25,6 +26,10 @@
 
         &.active {
             transform: scale(1);
+        }
+
+        @media (max-width: 520px) {
+            width: 100%;
         }
     }
     

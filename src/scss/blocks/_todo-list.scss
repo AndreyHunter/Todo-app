@@ -52,27 +52,6 @@
             display: block;
         }
     }
-
-    &__add-taskBtn {
-        width: 50px;
-        min-height: 50px;
-        border-radius: 100%;
-        background: var(--purple);
-        box-shadow: var(--plus-bg-box-shadow);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 700px;
-        right: 400px;
-        cursor: pointer;
-        transition: background-color var(--main-transition);
-        
-        &:hover {
-            background-color: var(--plus-icon-bg-hover);
-            border: var(--plus-icon-bg-border);
-        }
-    }
 }
     
 .action-icons {

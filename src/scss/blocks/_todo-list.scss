@@ -26,6 +26,8 @@
             text-decoration: line-through;
             color: rgba(37, 37, 37, 0.5);
         }
+
+
     }
 
     &__item-check-wrapper {
@@ -41,8 +43,8 @@
 
     &__item-check {
         display: none;
-        border-left: 2px solid var(--purple);
-        border-top: 2px solid var(--purple);
+        border-left: 3px solid var(--purple);
+        border-top: 3px solid var(--purple);
         width: 10px;
         height: 20px;
         transform: rotate(-140deg)  translate(1.2px, 2px);

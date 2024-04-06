@@ -1,6 +1,7 @@
 import { Modal } from './modules/modal';
 import { renderTask, todoEmpty } from './modules/render';
 import { getItem, setItem } from './modules/local-storage';
+import { changeTheme } from './modules/theme';
 
 import 'simplebar';
 import 'simplebar/dist/simplebar.css';
@@ -11,6 +12,15 @@ let tasksArray = getItem('task') || [];
 renderTask('.todo__list', tasksArray);
 
 checkTodoListLength('.todo__list');
+
+// Установка темы 
+if (localStorage.getItem('theme')) {
+    if (!document.body.classList.contains('dark')) {
+        document.body.classList.add('dark');
+    }
+}
+
+changeTheme('.todo__themeBtn', 'body', 'dark');
 
 // Модальное окно
 const modal = new Modal(
@@ -96,7 +106,9 @@ function handleTaskAction(e) {
     // Изменение таска
 
     if (target.dataset.action === 'change') {
-        const newTaskText = prompt('Change Task', '');
+        const currentTask = tasksArray[taskIndex].taskText;
+        const newTaskText = prompt('Change Task', currentTask);
+        if (!newTaskText) return;
         tasksArray[taskIndex].taskText = newTaskText;
         renderTask('.simplebar-content', tasksArray);
     }

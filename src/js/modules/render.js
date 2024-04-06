@@ -5,10 +5,10 @@ function renderTask(selector, data) {
 
 	for (let key of data) {
 		const { id, taskText, status } = key;
-		const isDone = status ? 'active' : '';
+		const isDone = status ? 'todo__item active' : 'todo__item';
 
 		const taskHTML = `
-            <li class="todo__item ${isDone}" id="${id}">
+            <li class="${isDone}" id="${id}">
               <div class="todo__item-task">
                     <div class="todo__item-check-wrapper">
                         <div class="todo__item-check ${isDone}"></div>

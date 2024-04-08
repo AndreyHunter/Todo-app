@@ -13,11 +13,14 @@ renderTask('.todo__list', tasksArray);
 
 checkTodoListLength('.todo__list');
 
-// Установка темы 
+// Установка темы
 if (localStorage.getItem('theme')) {
-    if (!document.body.classList.contains('dark')) {
-        document.body.classList.add('dark');
-    }
+	if (!document.body.classList.contains('dark')) {
+		document.body.classList.add('dark');
+		document
+			.querySelector('.todo__themeBtn use')
+			.setAttribute('href', './images/svgsprite/sprite.symbol.svg#sun');
+	}
 }
 
 changeTheme('.todo__themeBtn', 'body', 'dark');
@@ -33,10 +36,14 @@ const modal = new Modal(
 
 const modalOverlay = document.querySelector('.todo-modal');
 modalOverlay.addEventListener('click', (e) => {
-    const target = e.target;
-    if (!target.classList.contains(modalOverlay) && !modalOverlay.classList.contains('active')) return;
-    if (target === modalOverlay) modal.closeModal();
-    if (target.getAttribute('data-modal-btn') === 'chancel') modal.closeModal();
+	const target = e.target;
+	if (
+		!target.classList.contains(modalOverlay) &&
+		!modalOverlay.classList.contains('active')
+	)
+		return;
+	if (target === modalOverlay) modal.closeModal();
+	if (target.getAttribute('data-modal-btn') === 'chancel') modal.closeModal();
 });
 
 document.addEventListener('keydown', (e) =>
@@ -87,7 +94,7 @@ function handleTaskAction(e) {
 
 	const taskIndex = tasksArray.findIndex((task) => task.id === id);
 
-    // Смена статуса таска
+	// Смена статуса таска
 
 	if (target === taskText || target === done) {
 		tasksArray[taskIndex].status = !tasksArray[taskIndex].status;
@@ -95,7 +102,7 @@ function handleTaskAction(e) {
 		taskText.querySelector('.todo__item-check').classList.toggle('active');
 	}
 
-    // Удаление таска
+	// Удаление таска
 
 	if (target.dataset.action === 'remove') {
 		tasksArray.splice(taskIndex, 1);
@@ -103,15 +110,15 @@ function handleTaskAction(e) {
 		checkTodoListLength('.simplebar-content');
 	}
 
-    // Изменение таска
+	// Изменение таска
 
-    if (target.dataset.action === 'change') {
-        const currentTask = tasksArray[taskIndex].taskText;
-        const newTaskText = prompt('Change Task', currentTask);
-        if (!newTaskText) return;
-        tasksArray[taskIndex].taskText = newTaskText;
-        renderTask('.simplebar-content', tasksArray);
-    }
+	if (target.dataset.action === 'change') {
+		const currentTask = tasksArray[taskIndex].taskText;
+		const newTaskText = prompt('Change Task', currentTask);
+		if (!newTaskText) return;
+		tasksArray[taskIndex].taskText = newTaskText;
+		renderTask('.simplebar-content', tasksArray);
+	}
 
 	setItem('task', tasksArray);
 }
